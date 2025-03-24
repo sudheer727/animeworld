@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimePedia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header.dark-mode {
+            background-color: #444;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav.dark-mode {
+            background-color: #555;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #555;
+        }
+        .character-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .character-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .character-card.dark-mode {
+            background-color: #444;
+            color: #f4f4f4;
+        }
+        .character-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mode-toggle.dark-mode {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AnimePedia</h1>
+        <button class="mode-toggle" onclick="toggleMode()">Dark Mode</button>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Search for Character</a>
+    </nav>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for character...">
+            <button onclick="searchCharacters()">Search</button>
+        </div>
+        <div class="character-list" id="characterList">
+            <div class="character-card">
+                <img src="./images/naruto.jpg" alt="Naruto Uzumaki">
+                <h3>Naruto Uzumaki</h3>
+                <p>From: Naruto</p>
+                <p>Naruto Uzumaki is a young ninja who dreams of becoming the Hokage, the leader of his village. Despite being ostracized by his peers, Naruto works hard to gain their respect and protect his friends.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/franky-one_piece.webp" alt="Monkey D. Luffy">
+                <h3>Monkey D. Luffy</h3>
+                <p>From: One Piece</p>
+                <p>Luffy is the captain of the Straw Hat Pirates. He aims to find the legendary treasure known as One Piece and become the Pirate King. His rubber body, gained from eating a Devil Fruit, gives him unique abilities.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/goku.jpg" alt="Goku">
+                <h3>Goku</h3>
+                <p>From: Dragon Ball</p>
+                <p>Goku is a Saiyan warrior who protects Earth from various threats. He trains constantly to become stronger and has saved the planet multiple times from powerful enemies.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/light.jpg" alt="Light Yagami">
+                <h3>Light Yagami</h3>
+                <p>From: Death Note</p>
+                <p>Light Yagami is a brilliant student who discovers a mysterious notebook that can kill anyone whose name is written in it. He uses it to rid the world of criminals, but his methods are morally questionable.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/eren_yeager.png" alt="Eren Yeager">
+                <h3>Eren Yeager</h3>
+                <p>From: Attack on Titan</p>
+                <p>Eren Yeager vows to eradicate the Titans after they destroy his hometown and kill his mother. He possesses the ability to transform into a Titan himself, which he uses to fight for humanity's survival.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/saitama.webp" alt="Saitama">
+                <h3>Saitama</h3>
+                <p>From: One Punch Man</p>
+                <p>Saitama is a hero who can defeat any opponent with a single punch. Despite his immense power, he struggles with the boredom and lack of challenge in his fights.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/edward-elric.webp" alt="Edward Elric">
+                <h3>Edward Elric</h3>
+                <p>From: Fullmetal Alchemist</p>
+                <p>Edward Elric is a young alchemist who seeks the Philosopher's Stone to restore his brother's body. He and his brother Alphonse embark on a journey filled with danger and discovery.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/akuto-sai-1.jpg" alt="Sailor Moon">
+                <h3>Sailor Moon</h3>
+                <p>From: Sailor Moon</p>
+                <p>Sailor Moon, also known as Usagi Tsukino, is a magical girl who fights evil forces to protect the Earth. She is part of a group of Sailor Scouts who defend the planet from various threats.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/levi.jpg" alt="Levi Ackerman">
+                <h3>Levi Ackerman</h3>
+                <p>From: Attack on Titan</p>
+                <p>Levi Ackerman is humanity's strongest soldier, known for his exceptional combat skills and leadership. He plays a crucial role in the fight against the Titans.</p>
+            </div>
+            <div class="character-card">
+                <img src="./images/spike.jpg" alt="Spike Spiegel">
+                <h3>Spike Spiegel</h3>
+                <p>From: Cowboy Bebop</p>
+                <p>Spike Spiegel is a bounty hunter traveling through space with his crew. Known for his laid-back attitude and martial arts skills, Spike takes on dangerous missions to make a living.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark/Light Mode Toggle
+        function toggleMode() {
+            const body = document.body;
+            const header = document.querySelector('header');
+            const nav = document.querySelector('nav');
+            const characterCards = document.querySelectorAll('.character-card');
+            const modeToggle = document.querySelector('.mode-toggle');
+
+            body.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            nav.classList.toggle('dark-mode');
+            characterCards.forEach(card => card.classList.toggle('dark-mode'));
+            modeToggle.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.textContent = 'Light Mode';
+            } else {
+                modeToggle.textContent = 'Dark Mode';
+            }
+        }
+
+        // Search Functionality
+        function searchCharacters() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const characterCards = document.querySelectorAll('.character-card');
+
+            characterCards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url('backgrounds.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-size: 18px;    
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);  /* Light transparency */
+    backdrop-filter: blur(10px);           /* Glassmorphism blur effect */
+    -webkit-backdrop-filter: blur(10px);   /* Safari compatibility */
+    border: 2px solid rgba(255, 255, 255, 0.3);  /* Clear visible border */
+    border-radius: 15px;
+    padding: 25px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    font-size: 18px;    
+}
+
+input, button, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Clear input border */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent input fields */
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 18px;    
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #0a8310;
+}
+
+p {
+    text-align: center;
+}
+p a {
+    font-size: 18px;        /* Adjust font size */
+    color: #0a12f9;         /* Green color for links */
+    text-decoration: none;  /* Removes underline */
+    font-weight: bold;      /* Optional: Bold text */
+}
+
+p a:hover {
+    color: #2628ac;         /* Darker green on hover */
+    text-decoration: underline; /* Add underline on hover for better UX */
+}

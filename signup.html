@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <label>Username:</label>
+            <input type="text"  placeholder="Enter your name"id="signupUsername" required>
+
+            <label>Password:</label>
+            <input type="password" placeholder="Enter password"id="signupPassword" required>
+
+            <label>Country Code:</label><br>
+            <select id="signupCountryCode">
+                <option value="+1">+1 (USA)</option>
+                <option value="+91" selected>+91 (India)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+            </select><br>
+            
+
+            <label>Phone Number:</label>
+            <input type="text" placeholder="Enter phone number"id="signupPhone" maxlength="10" required oninput="this.value = this.value.replace(/[^1-9]/g, '').slice(0, 10)">
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter email" id="signupEmail" required>
+
+            <button type="button" onclick="createAccount()">Create Account</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
